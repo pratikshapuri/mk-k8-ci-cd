@@ -15,9 +15,11 @@
     - name: Deploy SayarApp
       shell: "/usr/local/bin/helm install  sayar-{{ Namespace }}  /var/lib/jenkins/workspace/demo-project-2/ansible/sayarapp --namespace={{ Namespace }} --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }}"
       delegate_to: localhost
+      become : yes
       ignore_errors: yes
     - name: Update SayarApp
       shell: "/usr/local/bin/helm upgrade --wait --recreate-pods --namespace={{ Namespace }} --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }} sayar-{{ Namespace }} /var/lib/jenkins/workspace/demo-project-2/ansible/sayarapp"
       delegate_to: localhost
+      become : yes
       ignore_errors: yes
 
