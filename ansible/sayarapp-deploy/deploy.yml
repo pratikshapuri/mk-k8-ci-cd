@@ -13,7 +13,7 @@
       become: yes
       ignore_errors: yes
     - name: Deploy SayarApp
-      shell: "/usr/local/bin/helm install  --set name=sayar-{{ Namespace }} --namespace={{ Namespace }} /var/lib/jenkins/workspace/demo-project-2/ansible/sayarapp --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }}"
+      shell: "/usr/local/bin/helm install  sayar-{{ Namespace }}  /var/lib/jenkins/workspace/demo-project-2/ansible/sayarapp --namespace={{ Namespace }} --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }}"
       delegate_to: localhost
       ignore_errors: yes
     - name: Update SayarApp
