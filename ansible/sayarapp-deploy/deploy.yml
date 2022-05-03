@@ -10,7 +10,7 @@
   tasks:
     - name: Create Namespace {{ Namespace }}
       shell: "kubectl create namespace {{ Namespace }}"
-      become: yes
+      # become: yes
       # ignore_errors: yes
     - name: Deploy SayarApp
       shell: "/usr/local/bin/helm install --name=sayar-{{ Namespace }}  --namespace={{ Namespace }} /var/lib/jenkins/workspace/kubernetes-CI-CD/ansible/sayarapp --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }}"
