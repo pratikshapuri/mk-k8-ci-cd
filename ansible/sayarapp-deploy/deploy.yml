@@ -17,7 +17,7 @@
       delegate_to: localhost
       ignore_errors: yes
     - name: Update SayarApp
-      shell: "/usr/local/bin/helm upgrade --wait --recreate-pods --namespace={{ Namespace }} --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }} sayar-{{ Namespace }} /var/lib/jenkins/workspace/kubernetes-CI-CD/ansible/sayarapp"
+      shell: "/usr/local/bin/helm upgrade --wait --recreate-pods --namespace={{ Namespace }} --set image.repository={{ ImageName }} --set image.tag={{ imageTag }} --set namespace={{ Namespace }} sayar-{{ Namespace }} /var/lib/jenkins/workspace/demo-project-2/ansible/sayarapp"
       delegate_to: localhost
       ignore_errors: yes
 
